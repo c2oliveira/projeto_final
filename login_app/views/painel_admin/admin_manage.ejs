@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Produtos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Gerenciamento de Produtos</h2>
+    <h3>Adicionar Produto</h3>
+    <form action="/admin/add-product" method="post">
+      <label for="category">Categoria:</label>
+      <select name="category" id="category" required>
+        <option value="artesanato">Artesanato</option>
+        <option value="frutas">Frutas</option>
+        <option value="kg">KG</option>
+        <option value="racoes">Rações</option>
+        <option value="sementes">Sementes</option>
+        <option value="vegetais">Vegetais</option>
+      </select>
+      <label for="name">Nome do Produto:</label>
+      <input type="text" name="name" id="name" required>
+      <label for="description">Descrição:</label>
+      <input type="text" name="description" id="description">
+      <label for="price">Preço:</label>
+      <input type="number" step="0.01" name="price" id="price" required>
+      <button type="submit">Adicionar Produto</button>
+    </form>
+    <h3>Remover Produto</h3>
+    <form action="/admin/remove-product" method="post">
+      <label for="category_remove">Categoria:</label>
+      <select name="category" id="category_remove" required>
+        <option value="artesanato">Artesanato</option>
+        <option value="frutas">Frutas</option>
+        <option value="kg">KG</option>
+        <option value="racoes">Rações</option>
+        <option value="sementes">Sementes</option>
+        <option value="vegetais">Vegetais</option>
+      </select>
+      <label for="product_id">ID do Produto:</label>
+      <input type="number" name="id" id="product_id" required>
+      <button type="submit">Remover Produto</button>
+    </form>
+    <a href="/admin">Voltar ao Dashboard</a>
+  </div>
+</body>
+</html>
