@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo</title>
+  <!-- Link para o CSS que importa a fonte minimalista -->
+  <link rel="stylesheet" href="../fonts/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="catalog_title">Catálogo de Produtos</h1>
+    <!-- Seletor de idioma -->
+    <select id="language-selector">
+      <option value="pt-br">Português</option>
+      <option value="es">Español</option>
+    </select>
+  </header>
+  <section id="catalog">
+    <div class="product">
+      <h2>Produto Exemplo</h2>
+      <p>Descrição do produto...</p>
+      <p class="price">R$ 10.00</p>
+    </div>
+    <!-- Outros produtos podem ser adicionados aqui -->
+  </section>
+  <script>
+    const languageSelector = document.getElementById('language-selector');
+    languageSelector.addEventListener('change', function(){
+      loadTranslations(this.value);
+    });
+
+    function loadTranslations(lang) {
+      fetch(`../translations/${lang}.json`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('catalog_title').textContent = data.catalog_title;
+          // Exemplo simples: atualizando o conteúdo do primeiro produto
+          const product = document.querySelector('.product');
+          product.querySelector('h2').textContent = data.product_title;
+          product.querySelector('p').textContent = data.product_description;
+          product.querySelector('.price').textContent = data.product_price;
+        })
+        .catch(error => console.error('Erro carregando as traduções:', error));
+    }
+
+    // Carrega o idioma padrão (pt-br) ao carregar a página
+    window.addEventListener('load', () => loadTranslations('pt-br'));
+  </script>
+</body>
+</html>
