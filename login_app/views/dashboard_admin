@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Bem-vindo, <%= user.username %></h2>
+    <p>Área de administração para gerenciamento do catálogo.</p>
+    <div>
+      <a href="#">Adicionar Produto</a>
+      <a href="#">Remover Produto</a>
+    </div>
+    <a href="/logout">Sair</a>
+  </div>
+</body>
+</html>
